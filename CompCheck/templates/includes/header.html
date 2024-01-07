@@ -14,9 +14,6 @@
         <li class="nav-item"><a href="#" class="nav-link">Архив</a></li>
         <li class="nav-item"><a href={% url "about" %} class="nav-link">О нас</a></li>
         {% if user.is_authenticated %}
-        <li class="nav-item">
-            <a class="nav-link {% if view_name == 'store:cart_detail' %} text-blue {% endif %}" href="{% url 'store:cart_detail' %}"></a>
-        </li>
         <div class="btn-group" role="group" aria-label="Basic outlined example">
             <button type="button" class="btn btn-outline-primary">
                 <a class="text-decoration-none text-reset" href="#">{{ user.username }}</a>
@@ -31,7 +28,7 @@
                 <a class="text-decoration-none text-reset" href= {% url "login" %}>Войти</a>
             </button>
             <button type="button" class="btn btn-outline-primary">
-                <a class="text-decoration-none text-reset"href="#">Регистрация</a>
+                <a class="text-decoration-none text-reset"href={% url "registration" %}> Регистрация</a>
             </button>
         </div>
         {% endif %}
