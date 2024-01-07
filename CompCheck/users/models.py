@@ -1,7 +1,8 @@
-from unittest.util import _MAX_LENGTH
+from email.mime import image
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class User(AbstractUser):
-    user_telephone = models.CharField(max_length=12)
+    image = models.ImageField(upload_to='users_images', blank=True, null=True, verbose_name='Аватар')
+    phone_number = models.CharField(max_length=10, blank=True, null=True)

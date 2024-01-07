@@ -1,45 +1,64 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib import auth
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect, render
 from django.urls import reverse
-from users.forms import UserLoginForm
+from users.forms import UserLoginForm, UserRegistrationForm
 
+
+@login_required
 def profile(request):
-    context = {
-        "title": "Твой профиль",
-    }
+    if request.method == "POST":
+        form = UserRegistrationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.instance
+            auth.login(request, user)
+            return HttpResponseRedirect(reverse("index"))
+    else:
+        form = UserRegistrationForm()
+
+    context = {"title": "Твой профиль", "form": form}
     return render(request, "users/profile.html", context=context)
 
+
 def registration(request):
-    context = {
-        "title": "Регистрация",
-    }
+    if request.method == "POST":
+        form = UserRegistrationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.instance
+            auth.login(request, user)
+            return HttpResponseRedirect(reverse("index"))
+    else:
+        form = UserRegistrationForm()
+
+    context = {"title": "Регистрация", "form": form}
     return render(request, "users/registration.html", context=context)
+
 
 def login(request):
     if request.method == "POST":
         form = UserLoginForm(data=request.POST)
         if form.is_valid():
-            username = request.POST['username']
-            password = request.POST['password']
+            username = request.POST["username"]
+            password = request.POST["password"]
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
-                return HttpResponseRedirect(reverse('index'))
+                return HttpResponseRedirect(reverse("index"))
     else:
         form = UserLoginForm()
-    context = {
-        "title": "Авторизация",
-        "form": form
-    }
+
+    context = {"title": "Авторизация", "form": form}
     return render(request, "users/login.html", context=context)
 
 
+@login_required
 def logout(request):
-    context = {
-        "title": "Выход из системы",
-    }
-    return render(request, "users/logout.html", context=context)
+    auth.logout(request)
+    return redirect(reverse("index"))
+
 
 def password_reset(request):
     context = {

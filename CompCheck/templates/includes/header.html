@@ -16,10 +16,10 @@
         {% if user.is_authenticated %}
         <div class="btn-group" role="group" aria-label="Basic outlined example">
             <button type="button" class="btn btn-outline-primary">
-                <a class="text-decoration-none text-reset" href="#">{{ user.username }}</a>
+                <a class="text-decoration-none text-reset" href={% url "profile" %}>{{ user.username }}</a>
             </button>
             <button type="button" class="btn btn-outline-primary">
-                <a class="text-decoration-none text-reset" href="#">Выйти</a>
+                <a class="text-decoration-none text-reset" href={% url "logout" %}>Выйти</a>
             </button>
         </div>
         {% else %}
