@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'bootstrap5',
     'main',
     'users',
+    'archive',
+    'components',
 ]
 
 MIDDLEWARE = [
