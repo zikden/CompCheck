@@ -1,6 +1,9 @@
 /venv/
 .pylintrc
-*__pycache__
+*/__pycache__/*
+*/__pycache__/*/*
 *media
 */migrations/*
+*/migrations/*/*
+*/migrations/*/*/*
 db.sqlite3
