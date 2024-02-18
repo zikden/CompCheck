@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import Proccesor
+
 # Create your views here.
 
 
@@ -10,8 +12,10 @@ def archive(request):
     return render(request, "archive/archive.html", context=context)
 
 def CPU(request):
+    processors = Proccesor.objects.all()
     context = {
-        "title": "Процессоры"
+        "title": "Процессоры",
+        "processors": processors
         }
     return render(request, "archive/CPU.html", context=context)
 
