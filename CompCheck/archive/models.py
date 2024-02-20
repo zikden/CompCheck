@@ -81,22 +81,24 @@ class Memory_type(models.Model):
 class VideoCard(models.Model):
     brand = models.ForeignKey(
         "archive.VideocardBrand",
+        related_name="brand",
         on_delete=models.CASCADE
     )
     videochipset = models.ForeignKey(
         "archive.VideoChipset",
+        related_name="videochipset",
         on_delete=models.CASCADE
     )
     gram = models.IntegerField(validators=[MinValueValidator(1)])
     tdp = models.IntegerField(validators=[MinValueValidator(1)])
-    raiting = models.IntegerField(validators=[MinValueValidator(1)])
+    raiting = models.DecimalField(decimal_places=2, max_digits=8)
 
     class Meta:
         verbose_name = "VideoCard"
         verbose_name_plural = "VideoCards"
 
     def __str__(self):
-        return self.brand + self.videochipset
+        return f"{self.brand} {self.videochipset}"
 
 
 class VideocardBrand(models.Model):

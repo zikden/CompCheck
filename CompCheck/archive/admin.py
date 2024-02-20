@@ -1,20 +1,19 @@
 from django.contrib import admin
 from .models import (
-    Proccesor,
+    Processor,
     VideoCard,
-    ProccesorBrend,
-    ProccesorModel,
+    ProcessorBrand,
+    ProcessorModel,
     Soket,
     Memory_type,
     VideocardBrand,
     VideoChipset,
 )
 
-
 # Register your models here.
-admin.site.register(Proccesor)
-admin.site.register(ProccesorBrend)
-admin.site.register(ProccesorModel)
+admin.site.register(Processor)
+admin.site.register(ProcessorBrand)
+admin.site.register(ProcessorModel)
 admin.site.register(Soket)
 admin.site.register(Memory_type)
 

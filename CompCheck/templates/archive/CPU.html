@@ -4,36 +4,38 @@
 
 {% block content %}
     <div class="container">
-        <H1 >Процессоры </H1>
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Brand</th>
-                <th scope="col">Model</th>
-                <th scope="col">Soket</th>
-                <th scope="col">Memory type</th>
-                <th scope="col">MFS</th>
-                <th scope="col">TDP</th>
-                <th scope="col">Rating</th>
-              </tr>
-            </thead>
-            <tbody>
-                {% for processor in processors %}
-              <tr>
-                <th scope="row">{{ processor.id }}</th>
-                <td>{{ processor.brend }}</td>
-                <td>{{ processor.proccesor_models }}</td>
-                <td>{{ processor.soket }}</td>
-                <td>
-                    {% for memory_type_in_proccessor in processor.memory_type.all %}
-                        {{ memory_type_in_proccessor }}
-                    {% endfor %}
-                </td>
-                <td>{{ processor.mfs }}</td>
-                <td>{{ processor.tdp }}</td>
-                <td>{{ processor.raiting }}</td>
-              </tr>
-              {% endfor %}
+      <H1 >Процессоры </H1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Model</th>
+            <th scope="col">Soket</th>
+            <th scope="col">Memory type</th>
+            <th scope="col">MFS</th>
+            <th scope="col">TDP</th>
+            <th scope="col">Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for processor in processors %}
+          <tr>
+            <th scope="row">{{ processor.id }}</th>
+            <td>{{ processor.brand }}</td>
+            <td>{{ processor.proccesor_models }}</td>
+            <td>{{ processor.soket }}</td>
+            <td>
+                {% for processor_memory_type in processor.memory_type.all %}
+                  {{ processor_memory_type }}
+                {% endfor %}
+            </td>
+            <td>{{ processor.mfs }}</td>
+            <td>{{ processor.tdp }}</td>
+            <td>{{ processor.raiting }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
 {% endblock %}

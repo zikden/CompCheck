@@ -4,6 +4,30 @@
 
 {% block content %}
     <div class="container">
-        <H1 >Видеокарты</H1>
+        <H1>Видеокарты</H1>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Chipset</th>
+                <th scope="col">GRAM</th>
+                <th scope="col">TDP</th>
+                <th scope="col">Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for videocard in videocards %}
+              <tr>
+                <th scope="row">{{ videocard.id }}</th>
+                <td>{{ videocard.brand }}</td>
+                <td>{{ videocard.videochipset }}</td>
+                <td>{{ videocard.gram }}</td>
+                <td>{{ videocard.tdp }}</td>
+                <td>{{ videocard.raiting }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
     </div>
 {% endblock %}

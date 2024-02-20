@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'users',
     'archive',
     'components',
+    'computer',
 ]
 
 MIDDLEWARE = [

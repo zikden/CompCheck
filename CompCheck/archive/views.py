@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Proccesor
+from .models import Processor, VideoCard
 
 # Create your views here.
 
@@ -12,7 +12,7 @@ def archive(request):
     return render(request, "archive/archive.html", context=context)
 
 def CPU(request):
-    processors = Proccesor.objects.all()
+    processors = Processor.objects.all()
     context = {
         "title": "Процессоры",
         "processors": processors
@@ -20,7 +20,9 @@ def CPU(request):
     return render(request, "archive/CPU.html", context=context)
 
 def GPU(request):
+    videocards = VideoCard.objects.all()
     context = {
-        "title": "Видеокарты"
+        "title": "Видеокарты",
+        "videocards": videocards
         }
     return render(request, "archive/GPU.html", context=context)

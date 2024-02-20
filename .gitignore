@@ -7,14 +7,17 @@
 *media
 
 #pycache
-*/__pycache__/*
-*/__pycache__/*/*
+*/*/__pycache__/*
+*/*/__pycache__/*/*
+*/*/*/__pycache__/*
+*/*/*/__pycache__/*/*
 
 #migrations
 !*/migrations/__init__.py
-*/migrations/*
-*/migrations/*/*
-*/migrations/*/*/*
+!*/*/migrations/__init__.py
+# */*/migrations/*
+# */*/migrations/*/*
+# */*/migrations/*/*/*
 
 #db
 db.sqlite3
