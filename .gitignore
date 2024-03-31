@@ -1,7 +1,8 @@
 #system
+.env
 /venv/
-/.vscode/
-.pylintrc
+*/.vscode/*
+*.pylintrc*
 
 #media
 *media
