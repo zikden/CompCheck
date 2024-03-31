@@ -2,7 +2,7 @@ from django.core.validators import MinValueValidator
 from django.db import models
 
 # Create your models here.
-class Computer(models.Model):
+class Computer(models.Model): #TODO переписать класс под карты
     description = models.CharField(max_length=100)
     processor = models.ForeignKey(
         "components.Components_processor",

@@ -3,6 +3,7 @@ from django.db import models
 
 
 # Create your models here.
+#TODO Добавить класс для карточек кмпонентов
 class Components_processor(models.Model):
     processor = models.ForeignKey(
         "archive.Processor",
