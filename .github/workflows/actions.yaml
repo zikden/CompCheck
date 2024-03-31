@@ -9,7 +9,7 @@ jobs:
       matrix:
         python-version: ['3.9', '3.10', '3.11']
     steps:
-      - name: Check out reposgit itory code
+      - name: Check out reposgititory code
         uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
@@ -21,8 +21,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run Tests
         run: |
-          cd ./src
-          echo "SECRET_KEY = 'django-insecure-dummy-secret'" > ./proj/secrets.py
+          env "SECRET_KEY=django-insecure-dummy-secret"
           python3 manage.py test
       # - name: Update passed icon
       #   uses: Sibz/github-status-action@v1
