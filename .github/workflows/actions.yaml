@@ -22,7 +22,7 @@ jobs:
       - name: Run Tests
         run: |
           env "SECRET_KEY=django-insecure-dummy-secret"
-          cd ..
+          cd CompCheck
           python3 manage.py test
       # - name: Update passed icon
       #   uses: Sibz/github-status-action@v1
