@@ -23,7 +23,7 @@ jobs:
         run: |
           export SECRET_KEY="django-insecure-dummy-secret"
           printenv | grep SECRET_KEY
-          cd CompCheck
+          cd backend
           python3 manage.py test
       # - name: Update passed icon
       #   uses: Sibz/github-status-action@v1
