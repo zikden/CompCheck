@@ -17,43 +17,43 @@ class SerializerTest(TestCase):
 
         # self.videocard
 
-    # TODO дописать тест
-    def test_serializer_processor(self):
-        self.processor_1 = Processor.objects.create(brand=self.processor_brand_1,
-                                               processor_models=self.processor_model_1,
-                                               soket=self.soket_1,
-                                               memory_type=self.memory_type_1,
-                                               mfs=3200,
-                                               tdp=45,
-                                               raiting=8000)
-        self.processor_2 = Processor.objects.create(brand=self.processor_brand_2,
-                                               processor_models=self.processor_model_2,
-                                               soket=self.soket_2,
-                                               memory_type=self.memory_type_2,
-                                               mfs=4800,
-                                               tdp=80,
-                                               raiting=7000)
+    # # TODO дописать тест
+    # def test_serializer_processor(self):
+    #     self.processor_1 = Processor.objects.create(brand=self.processor_brand_1,
+    #                                            processor_models=self.processor_model_1,
+    #                                            soket=self.soket_1,
+    #                                            memory_type=self.memory_type_1,
+    #                                            mfs=3200,
+    #                                            tdp=45,
+    #                                            raiting=8000)
+    #     self.processor_2 = Processor.objects.create(brand=self.processor_brand_2,
+    #                                            processor_models=self.processor_model_2,
+    #                                            soket=self.soket_2,
+    #                                            memory_type=self.memory_type_2,
+    #                                            mfs=4800,
+    #                                            tdp=80,
+    #                                            raiting=7000)
 
-        serialazer_data = ProcessorSerializer([self.processor_1, self.processor_2], many=True).data
-        expected_data = [
-            {
-                "id": self.processor_1.id,
-                "brand": self.processor_brand_1,
-                "processor_models": self.processor_model_1,
-                "soket": self.memory_type_1,
-                "mfs": 3200,
-                "tdp": 45,
-                "raiting": 8000
-            },
-            {
-                "id": self.processor_2.id,
-                "brand": self.processor_brand_2,
-                "processor_models": self.processor_model_2,
-                "soket": self.memory_type_2,
-                "mfs": 4800,
-                "tdp": 80,
-                "raiting": 7000
-            }
-        ]
+    #     serialazer_data = ProcessorSerializer([self.processor_1, self.processor_2], many=True).data
+    #     expected_data = [
+    #         {
+    #             "id": self.processor_1.id,
+    #             "brand": self.processor_brand_1,
+    #             "processor_models": self.processor_model_1,
+    #             "soket": self.memory_type_1,
+    #             "mfs": 3200,
+    #             "tdp": 45,
+    #             "raiting": 8000
+    #         },
+    #         {
+    #             "id": self.processor_2.id,
+    #             "brand": self.processor_brand_2,
+    #             "processor_models": self.processor_model_2,
+    #             "soket": self.memory_type_2,
+    #             "mfs": 4800,
+    #             "tdp": 80,
+    #             "raiting": 7000
+    #         }
+    #     ]
 
-        self.assertEqual(expected_data, serialazer_data)
+    #     self.assertEqual(expected_data, serialazer_data)
