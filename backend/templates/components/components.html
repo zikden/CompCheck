@@ -4,45 +4,50 @@
 
 {% block content %}
     <div class="container">
+
         <H1 >Компоненты</H1>
         <div class="container">
+            <p> {{ component_processors }}</p>
             <p>
                 Фильтры
             </p>
         </div>
-        {% comment %} Написать это как карты товаров, а не как таблица {% endcomment %}
-        <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Brand</th>
-              <th scope="col">Model</th>
-              <th scope="col">Soket</th>
-              <th scope="col">Memory type</th>
-              <th scope="col">MFS</th>
-              <th scope="col">TDP</th>
-              <th scope="col">Rating</th>
-              <th scope="col">Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for processor in processors %}
-            <tr>
-              <th scope="row">{{ processor.id }}</th>
-              <td>{{ processor.components_processor.brand }}</td>
-              <td>{{ processor.components_processor.proccesor_models }}</td>
-              <td>{{ processor.components_processor.soket }}</td>
-              <td>
-                  {% for processor_memory_type in processor.components_processor.memory_type.all %}
-                    {{ processor_memory_type }}
-                  {% endfor %}
-              </td>
-              <td>{{ processor.components_processor.mfs }}</td>
-              <td>{{ processor.components_processor.tdp }}</td>
-              <td>{{ processor.components_processor.raiting }}</td>
-              <td>{{ processor.price }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+{#    TODO написать это как карты товаров, а не как таблица #}
+{#        {% comment %} Написать это как карты товаров, а не как таблица {% endcomment %}#}
+{#        <table class="table">#}
+{#        <thead>#}
+{#            <tr>#}
+{#              <th scope="col">#</th>#}
+{#              <th scope="col">Brand</th>#}
+{#              <th scope="col">Model</th>#}
+{#              <th scope="col">Soket</th>#}
+{#              <th scope="col">Memory type</th>#}
+{#              <th scope="col">MFS</th>#}
+{#              <th scope="col">TDP</th>#}
+{#              <th scope="col">Koef</th>#}
+{#              <th scope="col">Price</th>#}
+{#            </tr>#}
+{#          </thead>#}
+{#          <tbody>#}
+{##}
+{#            {% for component_processor in component_processors %}#}
+{#            <tr>#}
+{#              <th scope="row">{{ component_processor.id }}</th>#}
+{#              <td>{{ component_processor.processor.brand }}</td>#}
+{#              <td>{{ component_processor.processor.processor_models }}</td>#}
+{#              <td>{{ component_processor.processor.soket }}</td>#}
+{#              <td>#}
+{#                  {% for processor_memory_type in component_processor.processor.memory_type.all %}#}
+{#                    {{ processor_memory_type }}#}
+{#                  {% endfor %}#}
+{#              </td>#}
+{#              <td>{{ component_processor.processor.mfs }}</td>#}
+{#              <td>{{ component_processor.processor.tdp }}</td>#}
+{#              <td>{{ component_processor.raiting_for_price }}</td>#}
+{#              <td>{{ component_processor.price }}</td>#}
+{#            </tr>#}
+{#            {% endfor %}#}
+{#          </tbody>#}
+{#        </table>#}
     </div>
 {% endblock %}

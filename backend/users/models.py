@@ -10,6 +10,9 @@ class User(AbstractUser):
 class Country(models.Model):
     country_name = models.CharField(max_length=50)
 
+    def __str__(self):
+        return f"{self.country_name}"
+
 
 class City(models.Model):
     city_name = models.CharField(max_length=50)
@@ -20,6 +23,9 @@ class City(models.Model):
         on_delete=models.CASCADE,
     )
 
+    def __str__(self):
+        return f"{self.city_name}"
+
 
 class District(models.Model):
     district_name = models.CharField(max_length=50)
@@ -28,3 +34,6 @@ class District(models.Model):
         verbose_name="disctrict",
         on_delete=models.CASCADE
     )
+
+    def __str__(self):
+        return f"{self.district_name}"
