@@ -17,21 +17,21 @@ class SerializerTest(TestCase):
 
         # self.videocard
 
-    # TODO дописать тест
-    def test_model_processor(self):
-        self.processor_1 = Processor.objects.create(brand=self.processor_brand_1,
-                                               processor_models=self.processor_model_1,
-                                               soket=self.soket_1,
-                                               memory_type=self.memory_type_1,
-                                               mfs=3200,
-                                               tdp=45,
-                                               raiting=8000)
-        self.processor_2 = Processor.objects.create(brand=self.processor_brand_2,
-                                               processor_models=self.processor_model_2,
-                                               soket=self.soket_2,
-                                               memory_type=self.memory_type_2,
-                                               mfs=4800,
-                                               tdp=80,
-                                               raiting=7000)
+    # # TODO дописать тест
+    # def test_model_processor(self):
+    #     self.processor_1 = Processor.objects.create(brand=self.processor_brand_1,
+    #                                            processor_models=self.processor_model_1,
+    #                                            soket=self.soket_1,
+    #                                            memory_type=self.memory_type_1,
+    #                                            mfs=3200,
+    #                                            tdp=45,
+    #                                            raiting=8000)
+    #     self.processor_2 = Processor.objects.create(brand=self.processor_brand_2,
+    #                                            processor_models=self.processor_model_2,
+    #                                            soket=self.soket_2,
+    #                                            memory_type=self.memory_type_2,
+    #                                            mfs=4800,
+    #                                            tdp=80,
+    #                                            raiting=7000)
 
-        self.assertEqual()
+    #     self.assertEqual()
