@@ -1,10 +1,13 @@
 from django.shortcuts import render
-from .models import Components_processor
+from .models import CardsComponents
+
 
 # Create your views here.
-def components(request):
-    processors = Components_processor.objects.all()
+def CardsComponentsViews(request):
+    components = CardsComponents.objects.all()
+    component_processors = components
     context = {
-        "processors": processors,
+        "title": "Компоненты",
+        "component_processors": component_processors,
     }
-    return render(request, "archive/archive.html", context=context)
+    return render(request, "components/components.html", context=context)

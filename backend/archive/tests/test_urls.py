@@ -5,7 +5,7 @@ from django.urls import reverse
 class TestUrls(TestCase):
     """Тесирование url ссылок"""
     def test_urls_archive(self):
-        '''Тестирование ссылки archive'''
+        """Тестирование ссылки archive"""
         response = self.client.get(reverse('archive'))
 
         self.assertEqual(response.status_code, 200)
