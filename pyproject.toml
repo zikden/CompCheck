@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "compcheck"
+version = "0.1.0"
+description = ""
+authors = ["zikden <rivming@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+asgiref = "3.7.2"
+beautifulsoup4 = "4.12.2"
+django = "4.2.9"
+django-bootstrap-v5 = "1.0.11"
+pillow = "10.2.0"
+python-dotenv = "1.0.1"
+soupsieve = "2.5"
+sqlparse = "0.4.4"
+tzdata = "2023.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
