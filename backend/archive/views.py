@@ -6,6 +6,8 @@ from rest_framework.viewsets import ModelViewSet
 from .models import Processor, VideoCard
 from .serealizers import ProcessorSerializer, VideoCardSerializer
 
+from services.parsing.archive.archive import ParsingProcessor
+
 
 def archive(request):
     context = {
@@ -15,10 +17,12 @@ def archive(request):
 
 
 def CPU(request):
+    service = ParsingProcessor()
     processors = Processor.objects.all()
     context = {
         "title": "Процессоры",
-        "processors": processors
+        "processors": processors,
+        "parsing_result": service.parsing_main_CPU()
     }
     return render(request, "archive/CPU.html", context=context)
 

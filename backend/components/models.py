@@ -2,22 +2,11 @@ from django.core.validators import MinValueValidator
 from django.db import models
 
 
-# Create your models here.
-# TODO Добавить класс для карточек компонентов
-class CardsComponents(models.Model):
-    category_componetns = models.CharField(max_length=63)
 
-    def __str__(self):
-        return f"{self.category_componetns}"
 
 
 class Components_processor(models.Model):
-    category = models.ForeignKey(
-        "components.CardsComponents",
-        verbose_name="component_processor",
-        related_name="category_processor",
-        on_delete=models.CASCADE
-    )
+    category = models.CharField(max_length=20, default="Processor")
     processor = models.ForeignKey(
         "archive.Processor",
         verbose_name="processor",
@@ -44,12 +33,7 @@ class Components_processor(models.Model):
 
 
 class Components_VideoCard(models.Model):
-    category = models.ForeignKey(
-        "components.CardsComponents",
-        verbose_name="component_videocard",
-        related_name="category_videocard",
-        on_delete=models.CASCADE
-    )
+    category = models.CharField(max_length=20, default="VideoCard")
     videocard = models.ForeignKey(
         "archive.VideoCard",
         verbose_name="videocard",
@@ -76,6 +60,7 @@ class Components_VideoCard(models.Model):
 
 
 class Components_RAM(models.Model):
+    category = models.CharField(max_length=20, default="RAM")
     memory_type = models.ForeignKey(
         "archive.Memory_type",
         on_delete=models.CASCADE
@@ -98,6 +83,7 @@ class Components_RAM(models.Model):
 
 
 class Components_motherboard(models.Model):
+    category = models.CharField(max_length=20, default="Motherboard")
     soket = models.ForeignKey(
         "archive.Soket",
         on_delete=models.CASCADE
@@ -113,7 +99,14 @@ class Components_motherboard(models.Model):
 
 
 class Components_Memory(models.Model):
+
+    class TypeChoices(models.TextChoices):
+        SSD = "SSD"
+        SATA = "Sata"
+
+    category = models.CharField(max_length=20, default="Memory")
     amount = models.IntegerField(validators=[MinValueValidator(1)])
+    type_memory = models.CharField(max_length=65, choices=TypeChoices.choices)
     tdp = models.IntegerField(validators=[MinValueValidator(1)])
     url = models.URLField(max_length=255, unique=True)
     city = models.ForeignKey("users.City", on_delete=models.CASCADE)
