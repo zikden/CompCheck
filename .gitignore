@@ -15,9 +15,9 @@
 #migrations
 !*/migrations/__init__.py
 !*/*/migrations/__init__.py
-# */*/migrations/*
-# */*/migrations/*/*
-# */*/migrations/*/*/*
+*/*/migrations/*
+*/*/migrations/*/*
+*/*/migrations/*/*/*
 
 #db
 db.sqlite3
