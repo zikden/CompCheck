@@ -6,27 +6,27 @@ from django.db import models
 class Computer(models.Model):  # TODO переписать класс под карты
     description = models.CharField(max_length=100)
     processor = models.ForeignKey(
-        "components.Components_processor",
+        "app.components.Components_processor",
         verbose_name="processor",
         on_delete=models.CASCADE,
     )
     videocard = models.ForeignKey(
-        "components.Components_VideoCard",
+        "app.components.Components_VideoCard",
         verbose_name="videocard",
         on_delete=models.CASCADE,
     )
     ram = models.ForeignKey(
-        "components.Components_RAM",
+        "app.components.Components_RAM",
         verbose_name="ram",
         on_delete=models.CASCADE
     )
     motherboard = models.ForeignKey(
-        "components.Components_motherboard",
+        "app.components.Components_motherboard",
         verbose_name="motherboard",
         on_delete=models.CASCADE,
     )
     memory = models.ForeignKey(
-        "components.Components_Memory",
+        "app.components.Components_Memory",
         verbose_name="memory",
         on_delete=models.CASCADE,
     )

@@ -1,7 +1,7 @@
 from django.test import TestCase
 
-from archive.serealizers import ProcessorSerializer, VideoCardSerializer
-from archive.models import Processor, VideoCard, ProcessorBrand, ProcessorModel, Soket, Memory_type
+from app.archive.serealizers import ProcessorSerializer, VideoCardSerializer
+from app.archive.models import Processor, VideoCard, ProcessorBrand, ProcessorModel, Soket, Memory_type
 
 
 class SerializerTest(TestCase):

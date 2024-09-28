@@ -1,6 +1,7 @@
 #system
 .env
 /venv/
+/.venv/
 */.vscode/*
 *.pylintrc*
 

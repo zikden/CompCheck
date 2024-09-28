@@ -13,13 +13,13 @@ class CardsComponents(models.Model):
 
 class Components_processor(models.Model):
     category = models.ForeignKey(
-        "components.CardsComponents",
+        "app.components.CardsComponents",
         verbose_name="component_processor",
         related_name="category_processor",
         on_delete=models.CASCADE
     )
     processor = models.ForeignKey(
-        "archive.Processor",
+        "app.archive.Processor",
         verbose_name="processor",
         related_name="components_processor",
         on_delete=models.CASCADE
@@ -45,13 +45,13 @@ class Components_processor(models.Model):
 
 class Components_VideoCard(models.Model):
     category = models.ForeignKey(
-        "components.CardsComponents",
+        "app.components.CardsComponents",
         verbose_name="component_videocard",
         related_name="category_videocard",
         on_delete=models.CASCADE
     )
     videocard = models.ForeignKey(
-        "archive.VideoCard",
+        "app.archive.VideoCard",
         verbose_name="videocard",
         related_name="components_videocard",
         on_delete=models.CASCADE
@@ -77,7 +77,7 @@ class Components_VideoCard(models.Model):
 
 class Components_RAM(models.Model):
     memory_type = models.ForeignKey(
-        "archive.Memory_type",
+        "app.archive.Memory_type",
         on_delete=models.CASCADE
     )
     ram = models.IntegerField(validators=[MinValueValidator(1)])
@@ -99,11 +99,11 @@ class Components_RAM(models.Model):
 
 class Components_motherboard(models.Model):
     soket = models.ForeignKey(
-        "archive.Soket",
+        "app.archive.Soket",
         on_delete=models.CASCADE
     )
     memory_type = models.ForeignKey(
-        "archive.Memory_type",
+        "app.archive.Memory_type",
         on_delete=models.CASCADE
     )
     tdp = tdp = models.IntegerField(validators=[MinValueValidator(1)], default=50)
