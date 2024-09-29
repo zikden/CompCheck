@@ -4,22 +4,22 @@ from django.db import models
 
 class Processor(models.Model):
     brand = models.ForeignKey(
-        "app.archive.ProcessorBrand",
+        "archive.ProcessorBrand",
         related_name="brand",
         on_delete=models.CASCADE
     )
     processor_models = models.ForeignKey(
-        "app.archive.ProcessorModel",
+        "archive.ProcessorModel",
         related_name="processor_model",
         on_delete=models.CASCADE
     )
     soket = models.ForeignKey(
-        "app.archive.Soket",
+        "archive.Soket",
         related_name="soket",
         on_delete=models.CASCADE
     )
     memory_type = models.ManyToManyField(
-        "app.archive.Memory_type",
+        "archive.Memory_type",
         related_name="memory_type",
     )
     mfs = models.IntegerField()
@@ -80,12 +80,12 @@ class Memory_type(models.Model):
 
 class VideoCard(models.Model):
     brand = models.ForeignKey(
-        "app.archive.VideocardBrand",
+        "archive.VideocardBrand",
         related_name="brand",
         on_delete=models.CASCADE
     )
     videochipset = models.ForeignKey(
-        "app.archive.VideoChipset",
+        "archive.VideoChipset",
         related_name="videochipset",
         on_delete=models.CASCADE
     )

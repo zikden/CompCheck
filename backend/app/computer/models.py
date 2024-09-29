@@ -2,31 +2,30 @@ from django.core.validators import MinValueValidator
 from django.db import models
 
 
-# Create your models here.
 class Computer(models.Model):  # TODO переписать класс под карты
     description = models.CharField(max_length=100)
     processor = models.ForeignKey(
-        "app.components.Components_processor",
+        "components.Components_processor",
         verbose_name="processor",
         on_delete=models.CASCADE,
     )
     videocard = models.ForeignKey(
-        "app.components.Components_VideoCard",
+        "components.Components_VideoCard",
         verbose_name="videocard",
         on_delete=models.CASCADE,
     )
     ram = models.ForeignKey(
-        "app.components.Components_RAM",
+        "components.Components_RAM",
         verbose_name="ram",
         on_delete=models.CASCADE
     )
     motherboard = models.ForeignKey(
-        "app.components.Components_motherboard",
+        "components.Components_motherboard",
         verbose_name="motherboard",
         on_delete=models.CASCADE,
     )
     memory = models.ForeignKey(
-        "app.components.Components_Memory",
+        "components.Components_Memory",
         verbose_name="memory",
         on_delete=models.CASCADE,
     )
@@ -35,7 +34,10 @@ class Computer(models.Model):  # TODO переписать класс под к�
     raiting = models.IntegerField(validators=[MinValueValidator(1)])
 
     def create_description(self) -> None:
-        self.description = f'Цена компьютера {self.price}, рейтинг производительности компьютера{self.raiting}'
+        self.description = (
+            f'Цена компьютера {self.price}, рейтинг производительности '
+            f'компьютера{self.raiting}'
+        )
         self.save()
 
     def get_tdp(self) -> None:

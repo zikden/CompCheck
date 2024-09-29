@@ -33,11 +33,11 @@ INSTALLED_APPS = [
     'rest_framework',
 
     "bootstrap5",
-    "main",
-    "users",
-    "archive",
-    "components",
-    "computer",
+    "app.main",
+    "app.users",
+    "app.archive",
+    "app.components",
+    "app.computer",
 ]
 
 MIDDLEWARE = [

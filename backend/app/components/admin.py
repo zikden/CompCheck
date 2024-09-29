@@ -5,7 +5,6 @@ from .models import (
     Components_RAM,
     Components_motherboard,
     Components_Memory,
-    CardsComponents
 )
 
 # Register your models here.
@@ -14,4 +13,3 @@ admin.site.register(Components_VideoCard)
 admin.site.register(Components_RAM)
 admin.site.register(Components_motherboard)
 admin.site.register(Components_Memory)
-admin.site.register(CardsComponents)

@@ -2,24 +2,9 @@ from django.core.validators import MinValueValidator
 from django.db import models
 
 
-# Create your models here.
-# TODO Добавить класс для карточек компонентов
-class CardsComponents(models.Model):
-    category_componetns = models.CharField(max_length=63)
-
-    def __str__(self):
-        return f"{self.category_componetns}"
-
-
 class Components_processor(models.Model):
-    category = models.ForeignKey(
-        "app.components.CardsComponents",
-        verbose_name="component_processor",
-        related_name="category_processor",
-        on_delete=models.CASCADE
-    )
     processor = models.ForeignKey(
-        "app.archive.Processor",
+        "archive.Processor",
         verbose_name="processor",
         related_name="components_processor",
         on_delete=models.CASCADE
@@ -39,19 +24,13 @@ class Components_processor(models.Model):
         return f'{self.processor}'
 
     class Meta:
-        verbose_name = "CardsComponent"
-        verbose_name_plural = "CardsComponents"
+        verbose_name = "ProcessorComponent"
+        verbose_name_plural = "ProcessorsComponents"
 
 
 class Components_VideoCard(models.Model):
-    category = models.ForeignKey(
-        "app.components.CardsComponents",
-        verbose_name="component_videocard",
-        related_name="category_videocard",
-        on_delete=models.CASCADE
-    )
     videocard = models.ForeignKey(
-        "app.archive.VideoCard",
+        "archive.VideoCard",
         verbose_name="videocard",
         related_name="components_videocard",
         on_delete=models.CASCADE
@@ -77,7 +56,7 @@ class Components_VideoCard(models.Model):
 
 class Components_RAM(models.Model):
     memory_type = models.ForeignKey(
-        "app.archive.Memory_type",
+        "archive.Memory_type",
         on_delete=models.CASCADE
     )
     ram = models.IntegerField(validators=[MinValueValidator(1)])
@@ -99,14 +78,14 @@ class Components_RAM(models.Model):
 
 class Components_motherboard(models.Model):
     soket = models.ForeignKey(
-        "app.archive.Soket",
+        "archive.Soket",
         on_delete=models.CASCADE
     )
     memory_type = models.ForeignKey(
-        "app.archive.Memory_type",
+        "archive.Memory_type",
         on_delete=models.CASCADE
     )
-    tdp = tdp = models.IntegerField(validators=[MinValueValidator(1)], default=50)
+    tdp = models.IntegerField(validators=[MinValueValidator(1)], default=50)
     url = models.URLField(max_length=255, unique=True)
     city = models.ForeignKey("users.City", on_delete=models.CASCADE)
     price = models.IntegerField(validators=[MinValueValidator(1)])
